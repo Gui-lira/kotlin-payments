@@ -41,6 +41,10 @@ tasks.withType<KotlinCompile> {
     }
 }
 
+springBoot {
+    mainClass.set("org.study.project.kotlinpayments.ApplicationKt")
+}
+
 tasks.withType<Test> {
     useJUnitPlatform()
 }

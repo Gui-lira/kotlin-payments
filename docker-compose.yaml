@@ -1,0 +1,22 @@
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    networks:
+      - my_network
+    ports:
+      - "27017:27017"
+
+  spring_app:
+    build: .
+    container_name: spring_app
+    networks:
+      - my_network
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mongodb
+
+networks:
+  my_network:
+    driver: bridge
